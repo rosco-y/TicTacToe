@@ -5,16 +5,12 @@ using UnityEngine;
 public class cTriggerCell : MonoBehaviour
 {
         int _eventCount = 0;
-
-        private void OnTriggerEnter(Collider other)
-        {
-                if (other.tag == "TriggerCell")
-                        _eventCount++;
-        }
+        public GameObject _sphere;
 
         private void OnMouseDown()
         {
                 _eventCount++;
+                _sphere.transform.position = this.transform.position;
         }
 
 }

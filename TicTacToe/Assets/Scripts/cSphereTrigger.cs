@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cSphereTriggert : MonoBehaviour
+public class cSphereTrigger : MonoBehaviour
 {
         int _evenCount = 0;
 
@@ -10,10 +10,7 @@ public class cSphereTriggert : MonoBehaviour
         {
                 if (other.tag == "TriggerCell")
                         _evenCount++;
-        }
+        }                       
 
-        private void OnMouseDown()
-        {
-                _evenCount++;
-        }
+   
 }
