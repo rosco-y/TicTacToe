@@ -7,7 +7,7 @@ public class cCell : MonoBehaviour
         int _gridNo;
         int _cellNo;
         public Light _spotlight;
-
+        public float lightSpeed = 1f;
         private void OnMouseDown()
         {
 
@@ -24,6 +24,7 @@ public class cCell : MonoBehaviour
                 // look at center of grid selected by position of cell clicked.
                 Transform target = cSuperGrid.Instance[_cellNo][4].transform;
                 cSuperGrid.Instance.CurGrid = _cellNo;
-                cSpotlight.Instance.LookAt(target);
+                cSpotlight.Instance.Target = target;
         }
+
 }

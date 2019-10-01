@@ -770,6 +770,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: c4
       objectReference: {fileID: 0}
+    - target: {fileID: 5265717699408817762, guid: 285678edbbb756b409df94e97e911479,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 7661467489104244095, guid: 285678edbbb756b409df94e97e911479,
         type: 3}
       propertyPath: m_RootOrder

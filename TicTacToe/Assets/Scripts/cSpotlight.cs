@@ -6,7 +6,7 @@ public class cSpotlight : MonoBehaviour
 {
         // Start is called before the first frame update
         static cSpotlight _instance;
-
+        Transform _target;
         void Start()
         {
                 _instance = this;
@@ -18,9 +18,14 @@ public class cSpotlight : MonoBehaviour
                 set { _instance = value; }
         }
 
-
-        public void LookAt(Transform target)
+        public Transform Target
         {
-                this.transform.LookAt(target);
+                set { _target = value; }
+        }
+
+
+        private void FixedUpdate()
+        {
+                this.transform.LookAt(_target);
         }
 }
