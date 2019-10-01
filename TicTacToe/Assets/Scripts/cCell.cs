@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class cCell : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        int _eventCount = 0;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        private void OnMouseDown()
+        {
+                _eventCount++;
+                print("Mouse Event");
+        }
 }
