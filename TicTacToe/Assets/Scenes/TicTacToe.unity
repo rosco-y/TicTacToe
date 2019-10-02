@@ -1367,7 +1367,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 100
   m_Range: 29
-  m_SpotAngle: 16
+  m_SpotAngle: 64.4
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -1426,6 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfad970d002646148a80cf55fa278df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spotLight: {fileID: 1650044499}
   _lightSpeed: 1
 --- !u!114 &1780276964 stripped
 MonoBehaviour:

@@ -31,10 +31,26 @@ public class cCell : MonoBehaviour
                 // colorize to make the game playable.
                 this.GetComponent<Renderer>().material = curMaterial();
                 // take turns.
+                if(cSuperGrid.Instance[_gridNo].CheckForWinner())
+                {
+                        cSuperGrid.Instance[_gridNo].ColorWonGrid(curMaterial());
+                        // grid is won.
+                        if (cSuperGrid.Instance.CheckForWinner())
+                        {
+                                cSuperGrid.Instance.ColorSuperGridWinner(curMaterial());
+                                cSpotlight.Instance.SetSpotWidth(true);
+                        }
+                }
+
+                if (!cSuperGrid.Instance[_cellNo].GridIsWon)
+                        cSuperGrid.Instance.CurGrid = _cellNo;
+                else
+                        cSuperGrid.Instance.CurGrid = -1;
+                cSpotlight.Instance.Target = target;
+
+                // change player turn
                 cGameManager.REDTURN = !cGameManager.REDTURN;
                 _turnIndicator.GetComponent<Renderer>().material = curMaterial();
-                cSuperGrid.Instance.CurGrid = _cellNo;
-                cSpotlight.Instance.Target = target;
         }
 
         Material curMaterial()
