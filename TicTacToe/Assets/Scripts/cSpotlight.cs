@@ -7,6 +7,7 @@ public class cSpotlight : MonoBehaviour
         // Start is called before the first frame update
         static cSpotlight _instance;
         Transform _target;
+        public float _lightSpeed = 1f;
         void Start()
         {
                 _instance = this;
@@ -26,6 +27,11 @@ public class cSpotlight : MonoBehaviour
 
         private void FixedUpdate()
         {
-                this.transform.LookAt(_target);
+                Vector3 direction = (this.transform.forward - _target.position).normalized;
+                Vector3 tmpTarget = Vector3.Lerp(_target.position, direction, Time.deltaTime * _lightSpeed);
+                this.transform.LookAt(tmpTarget);
+                //''Quaternion lookRotation = Quaternion.LookRotation(direction);
+                //this.transform.LookAt(Quaternion.Slerp((this.transform.rotation, lookRotation, Time.deltaTime * _lightSpeed));
+                //this.transform.LookAt(Vector3.Lerp(_target.position, this.transform.forward, Time.deltaTime * _lightSpeed));
         }
 }
