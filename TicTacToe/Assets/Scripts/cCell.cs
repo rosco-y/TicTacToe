@@ -6,7 +6,8 @@ public class cCell : MonoBehaviour
 {
         int _gridNo;
         int _cellNo;
-        public Light _spotlight;
+        //public Light _spotlight;
+        public GameObject _turnIndicator;
         public float lightSpeed = 1f;
         public Material _red;
         public Material _green;
@@ -28,11 +29,17 @@ public class cCell : MonoBehaviour
                 // set the value of the cell to either 3 or 5, to indicate who it belongs to.
                 _cellValue = cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE;
                 // colorize to make the game playable.
-                this.GetComponent<Renderer>().material = cGameManager.REDTURN ? _red : _green;
+                this.GetComponent<Renderer>().material = curMaterial();
                 // take turns.
                 cGameManager.REDTURN = !cGameManager.REDTURN;
+                _turnIndicator.GetComponent<Renderer>().material = curMaterial();
                 cSuperGrid.Instance.CurGrid = _cellNo;
                 cSpotlight.Instance.Target = target;
+        }
+
+        Material curMaterial()
+        {
+                return cGameManager.REDTURN ? _red : _green;
         }
 
         public int CellValue
