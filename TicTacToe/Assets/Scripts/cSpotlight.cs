@@ -9,8 +9,9 @@ public class cSpotlight : MonoBehaviour
         static cSpotlight _instance;
         public Light _spotLight;
         float _wideAngle = 100f;
-        float _spotAngle = 16f;
+        float _spotAngle = 15.975f;
         Transform _target;
+        Transform _prevTarget;
         public float _lightSpeed = 1f;
         void Start()
         {
@@ -25,13 +26,20 @@ public class cSpotlight : MonoBehaviour
 
         public Transform Target
         {
-                set { _target = value; }
+                set
+                {
+                        _target = value;
+                        _prevTarget = _target;
+
+                }
         }
 
 
         private void FixedUpdate()
         {
-                transform.LookAt(_target);
+                
+                Vector3 prevTarget = Vector3.Lerp(_prevTarget.position, _target.position, Time.deltaTime * _lightSpeed);
+                transform.LookAt(_prevTarget);
         }
 
         public void SetSpotWidth(bool wide)

@@ -12,6 +12,7 @@ public class cGameManager : MonoBehaviour
 
         #region PUBLIC STATIC
         public static bool REDTURN = true;
+        public static bool GameOver { set; get; } = false;
         #endregion
 
         private void Start()

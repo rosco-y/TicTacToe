@@ -7,7 +7,7 @@ public class cSuperGrid : MonoBehaviour
         public c3x3[] _grids;
         static cSuperGrid _instance;
         int _curGrid = -1; // not set
-
+        
         private void Start()
         {
                 _instance = this; 
@@ -98,6 +98,8 @@ public class cSuperGrid : MonoBehaviour
                                 }
                         }
                 }
+                cGameManager.GameOver = winner;
+                cSpotlight.Instance.SetSpotWidth(true);
                 return winner;
         }
 

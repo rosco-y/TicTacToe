@@ -15,6 +15,9 @@ public class cCell : MonoBehaviour
         private void OnMouseDown()
         {
 
+                if (cGameManager.GameOver)
+                        return;
+
                 _gridNo = int.Parse(this.GetComponentInParent<c3x3>().name.Trim().Substring(1));
 
                 int curGrid = cSuperGrid.Instance.CurGrid;
@@ -22,7 +25,15 @@ public class cCell : MonoBehaviour
                 {
                         return; // have to click on current grid.
                 }
+                if (cSuperGrid.Instance[_gridNo].GridIsWon)
+                {
+                        return; // no clicking on a won grid.
+                }
+
                 _cellNo = int.Parse(this.name.Trim().Substring(1));
+
+                if (this._cellValue > 0)
+                        return; // don't try to change the owner of a cell.
 
                 // look at center of grid selected by position of cell clicked.
                 Transform target = cSuperGrid.Instance[_cellNo][4].transform;
