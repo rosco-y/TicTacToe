@@ -98,8 +98,11 @@ public class cSuperGrid : MonoBehaviour
                                 }
                         }
                 }
-                cGameManager.GameOver = winner;
-                cSpotlight.Instance.SetSpotWidth(true);
+                if (winner)
+                {
+                        cGameManager.GameOver();
+                }
+                // cSpotlight.Instance.SetSpotWidth(true);
                 return winner;
         }
 

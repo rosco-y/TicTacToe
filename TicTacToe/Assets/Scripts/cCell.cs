@@ -15,7 +15,7 @@ public class cCell : MonoBehaviour
         private void OnMouseDown()
         {
 
-                if (cGameManager.GameOver)
+                if (cGameManager.GameOverFlag)
                         return;
 
                 _gridNo = int.Parse(this.GetComponentInParent<c3x3>().name.Trim().Substring(1));

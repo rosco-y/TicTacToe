@@ -12,7 +12,7 @@ public class cSpotlight : MonoBehaviour
         float _spotAngle = 15.975f;
         Transform _target;
         Transform _prevTarget;
-        public float _lightSpeed = 1f;
+        public float _lightSpeed = .0001f;
         void Start()
         {
                 _instance = this;
@@ -35,7 +35,7 @@ public class cSpotlight : MonoBehaviour
         }
 
 
-        private void FixedUpdate()
+        private void Update()
         {
                 
                 Vector3 prevTarget = Vector3.Lerp(_prevTarget.position, _target.position, Time.deltaTime * _lightSpeed);

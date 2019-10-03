@@ -12,11 +12,17 @@ public class cGameManager : MonoBehaviour
 
         #region PUBLIC STATIC
         public static bool REDTURN = true;
-        public static bool GameOver { set; get; } = false;
+        public static bool GameOverFlag { set; get; } = false;
         #endregion
 
         private void Start()
         {
+                cSpotlight.Instance.SetSpotWidth(true);
+        }
+
+        public static void GameOver()
+        {
+                GameOverFlag = true;
                 cSpotlight.Instance.SetSpotWidth(true);
         }
 }
