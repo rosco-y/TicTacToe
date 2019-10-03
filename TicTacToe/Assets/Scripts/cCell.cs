@@ -11,7 +11,29 @@ public class cCell : MonoBehaviour
         public float lightSpeed = 1f;
         public Material _red;
         public Material _green;
+        Transform _originalTransform;
+        public bool Rotate { get; set; }
+        public float _rotateSpeed = 1f;
         int _cellValue;
+
+        private void Start()
+        {
+                _originalTransform = this.transform;
+        }
+
+        private void Update()
+        {
+                if (Rotate)
+                {
+                        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime * _rotateSpeed);
+                }
+                else
+                {
+                        transform.position = _originalTransform.position;
+                        transform.rotation = _originalTransform.rotation;
+                }
+        }
+
         private void OnMouseDown()
         {
 
@@ -41,7 +63,6 @@ public class cCell : MonoBehaviour
                 _cellValue = cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE;
                 // colorize to make the game playable.
                 this.GetComponent<Renderer>().material = curMaterial();
-                // take turns.
                 if(cSuperGrid.Instance[_gridNo].CheckForWinner())
                 {
                         cSuperGrid.Instance[_gridNo].ColorWonGrid(curMaterial());
@@ -53,7 +74,7 @@ public class cCell : MonoBehaviour
                         }
                 }
 
-                if (!cSuperGrid.Instance[_cellNo].GridIsWon)
+                if (!cGameManager.GameOverFlag && !cSuperGrid.Instance[_cellNo].GridIsWon)
                         cSuperGrid.Instance.CurGrid = _cellNo;
                 else
                         cSuperGrid.Instance.CurGrid = -1;

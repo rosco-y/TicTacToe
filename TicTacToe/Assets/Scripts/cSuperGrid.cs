@@ -121,5 +121,16 @@ public class cSuperGrid : MonoBehaviour
                 return aValues;
         }
 
+        public bool Rotate
+        {
+                set
+                {
+                        foreach (c3x3 grid in _grids)
+                        {
+                                grid.Rotate = value;
+                        }
+                }
+        }
+
 
 }

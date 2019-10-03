@@ -94,6 +94,7 @@ public class c3x3 : MonoBehaviour
                 {
                         // set winner value for grid.
                         this._gridValue = cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE;
+                        
                 }
                 return winner;
         }
@@ -126,7 +127,16 @@ public class c3x3 : MonoBehaviour
                 get { return _gridValue != 0; }
         }
 
-
+        public bool Rotate
+        {
+                set
+                {
+                        foreach (cCell cell in _cells)
+                        {
+                                cell.Rotate = value;
+                        }
+                }
+        }
 
 
 }

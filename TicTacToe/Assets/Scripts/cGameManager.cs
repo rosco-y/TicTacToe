@@ -24,5 +24,6 @@ public class cGameManager : MonoBehaviour
         {
                 GameOverFlag = true;
                 cSpotlight.Instance.SetSpotWidth(true);
+                cSuperGrid.Instance.Rotate = true;
         }
 }
