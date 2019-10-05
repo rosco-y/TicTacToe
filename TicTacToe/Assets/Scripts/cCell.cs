@@ -29,8 +29,7 @@ public class cCell : MonoBehaviour
                 }
                 else
                 {
-                        transform.position = _originalTransform.position;
-                        transform.rotation = _originalTransform.rotation;
+                        transform.SetPositionAndRotation(_originalTransform.position, _originalTransform.rotation);
                 }
         }
 

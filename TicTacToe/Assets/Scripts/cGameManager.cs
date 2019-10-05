@@ -8,6 +8,7 @@ public class cGameManager : MonoBehaviour
         public const int REDVALUE = 3;
         public const int GREENVALUE = 5;
         public const int GRIDSIZE = 3;
+        public const int GRIDFULL = 7;  // cat's grid.
         #endregion
 
         #region PUBLIC STATIC
@@ -15,9 +16,18 @@ public class cGameManager : MonoBehaviour
         public static bool GameOverFlag { set; get; } = false;
         #endregion
 
-        private void Start()
+        #region PUBLIC
+        public Material _white;
+        #endregion
+
+        #region PRIVATE
+        //static cGameManager _instance;
+        #endregion
+
+        void Start()
         {
                 cSpotlight.Instance.SetSpotWidth(true);
+                //_instance = this;
         }
 
         public static void GameOver()
@@ -26,4 +36,16 @@ public class cGameManager : MonoBehaviour
                 cSpotlight.Instance.SetSpotWidth(true);
                 cSuperGrid.Instance.Rotate = true;
         }
+
+        public cGameManager Instance
+        {
+                get { return this; }
+        }
+
+        public void NewGame()
+        {
+                cSuperGrid.Instance.Rotate = false;
+                cSuperGrid.Instance.ColorSuperGridWinner(_white);
+        }
+
 }
