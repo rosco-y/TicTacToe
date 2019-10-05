@@ -8,7 +8,7 @@ public class cGameManager : MonoBehaviour
         public const int REDVALUE = 3;
         public const int GREENVALUE = 5;
         public const int GRIDSIZE = 3;
-        public const int GRIDFULL = 7;  // cat's grid.
+        public const int CATSGAME = 7;  // cat's grid.
         #endregion
 
         #region PUBLIC STATIC

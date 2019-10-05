@@ -7,7 +7,7 @@ public class c3x3 : MonoBehaviour
         public cCell[] _cells;
         
         static c3x3 _instance;
-        public const int GRIDFULL = 7;  // cat's grid.
+        public const int CATSGAME = 7;  // cat's grid.
         int _gridValue = 0; // indicates winner of this grid
         private void Start()
         {
@@ -104,7 +104,7 @@ public class c3x3 : MonoBehaviour
                 else
                 {
                         if (gridIsFull)
-                                this._gridValue = GRIDFULL;
+                                this._gridValue = CATSGAME;
                 }
                 return winner;
         }
