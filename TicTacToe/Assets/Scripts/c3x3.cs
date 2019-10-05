@@ -7,6 +7,7 @@ public class c3x3 : MonoBehaviour
         public cCell[] _cells;
         
         static c3x3 _instance;
+        public const int CATSGAME = 7;  // cat's grid.
         int _gridValue = 0; // indicates winner of this grid
         private void Start()
         {
@@ -39,6 +40,7 @@ public class c3x3 : MonoBehaviour
         public bool CheckForWinner()
         {
                 bool winner = false;
+                bool gridIsFull = true; // set false if any 0's are found.
                 int[,] values = make2dValuesArray();
                 int redSum = cGameManager.REDVALUE * 3;
                 int greenSum = cGameManager.GREENVALUE * 3;
@@ -49,7 +51,10 @@ public class c3x3 : MonoBehaviour
                         sum = 0;
                         for (int col = 0; col < cGameManager.GRIDSIZE; col++)
                         {
-                                sum += values[row, col];
+                                int value = values[row, col];
+                                sum += value;
+                                gridIsFull &= value != 0;
+                                
                         }
                         winner = (sum == redSum || sum == greenSum);
                         if (winner)
@@ -95,6 +100,11 @@ public class c3x3 : MonoBehaviour
                         // set winner value for grid.
                         this._gridValue = cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE;
                         
+                }
+                else
+                {
+                        if (gridIsFull)
+                                this._gridValue = CATSGAME;
                 }
                 return winner;
         }
