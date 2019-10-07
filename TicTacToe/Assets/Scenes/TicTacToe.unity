@@ -915,7 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51e73dd08d754ec4f8a24c4c742dda51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _white: {fileID: 2100000, guid: 673c4a2a0d417e540b6589b0edf0c339, type: 2}
 --- !u!4 &584210718
 Transform:
   m_ObjectHideFlags: 0
@@ -976,7 +975,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1416,7 +1415,7 @@ Light:
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1

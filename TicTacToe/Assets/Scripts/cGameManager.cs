@@ -43,7 +43,7 @@ public class cGameManager : MonoBehaviour
                 cSuperGrid.Instance.Rotate = true;
         }
 
-        public cGameManager Instance
+        public static cGameManager Instance
         {
                 get
                 { 
@@ -60,6 +60,8 @@ public class cGameManager : MonoBehaviour
         {
                 cSuperGrid.Instance.Rotate = false;
                 cSuperGrid.Instance.ColorSuperGridWinner(cCell.White);
+                GameOverFlag = false;
+                cSuperGrid.Instance.NewGameSettings();
         }
 
 }
