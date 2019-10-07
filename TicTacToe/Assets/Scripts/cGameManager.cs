@@ -17,12 +17,18 @@ public class cGameManager : MonoBehaviour
         #endregion
 
         #region PUBLIC
-        public Material _white;
+        
         #endregion
 
         #region PRIVATE
-        //static cGameManager _instance;
+        static cGameManager _instance;
+        
         #endregion
+
+        private void Awake()
+        {
+                _instance = this;
+        }
 
         void Start()
         {
@@ -39,13 +45,21 @@ public class cGameManager : MonoBehaviour
 
         public cGameManager Instance
         {
-                get { return this; }
+                get
+                { 
+                        if (_instance == null)
+                        {
+                                GameObject go = new GameObject("cGameManager");
+                                go.AddComponent<cGameManager>();
+                        }
+                        return _instance;
+                }
         }
 
         public void NewGame()
         {
                 cSuperGrid.Instance.Rotate = false;
-                cSuperGrid.Instance.ColorSuperGridWinner(_white);
+                cSuperGrid.Instance.ColorSuperGridWinner(cCell.White);
         }
 
 }

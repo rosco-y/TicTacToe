@@ -7,10 +7,14 @@ public class cSuperGrid : MonoBehaviour
         public c3x3[] _grids;
         static cSuperGrid _instance;
         int _curGrid = -1; // not set
-        
+
+        private void Awake()
+        {
+                _instance = this;
+        }
+
         private void Start()
         {
-                _instance = this; 
         }
 
         public c3x3 this[int index]
@@ -21,8 +25,15 @@ public class cSuperGrid : MonoBehaviour
 
         public static cSuperGrid Instance
         {
-                get { return _instance; }
-                set { _instance = value; }
+                get
+                {
+                        if (_instance == null)
+                        {
+                                GameObject go = new GameObject();
+                                go.AddComponent<cSuperGrid>();
+                        }
+                        return _instance;
+                }
         }
 
         public int CurGrid

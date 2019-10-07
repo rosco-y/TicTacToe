@@ -12,24 +12,54 @@ public class cCell : MonoBehaviour
         public Material _red;
         public Material _green;
         Transform _originalTransform;
+        static float _rotX, _rotY, _rotZ;
         public bool Rotate { get; set; }
         public float _rotateSpeed = 1f;
+        static float _rotationDirectionSetter = 1f;
+        float _rotationDir;
+        static bool _rotationSaved;
+        static Material _white;
         int _cellValue;
 
         private void Start()
         {
-                _originalTransform = this.transform;
+                if (!_rotationSaved)
+                {
+                        saveRotation();
+                        _rotationSaved = true;
+                        _white = this.GetComponent<Renderer>().material;
+                }
+                _rotationDir = _rotationDirectionSetter;
+                _rotationDirectionSetter *= -1f;
+                
+        }
+
+        public static Material White
+        {
+                get { return _white; }
+        }
+
+        void saveRotation()
+        {
+                _rotX = this.transform.eulerAngles.x;
+                _rotY = this.transform.eulerAngles.y;
+                _rotZ = this.transform.eulerAngles.z;
+        }
+
+        void restoreRotation()
+        {
+                transform.eulerAngles = new Vector3(_rotX, _rotY, _rotZ);
         }
 
         private void Update()
         {
                 if (Rotate)
                 {
-                        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime * _rotateSpeed);
+                        transform.Rotate(new Vector3(_rotationDir * 15, _rotationDir * 30, _rotationDir * 45) * Time.deltaTime * _rotateSpeed);
                 }
                 else
                 {
-                        transform.SetPositionAndRotation(_originalTransform.position, _originalTransform.rotation);
+                        restoreRotation();
                 }
         }
 
