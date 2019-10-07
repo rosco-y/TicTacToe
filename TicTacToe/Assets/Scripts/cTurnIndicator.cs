@@ -13,9 +13,9 @@ public class cTurnIndicator : MonoBehaviour
                 }
                 else
                 {
-                        cGameManager mgr = new cGameManager();
-                        mgr.NewGame();
-                        //cGameManager.Instance.NewGame();
+                        //cGameManager mgr = new cGameManager();
+                        //mgr.NewGame();
+                        cGameManager.Instance.NewGame();
                 }
         }
 

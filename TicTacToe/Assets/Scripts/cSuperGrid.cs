@@ -8,6 +8,15 @@ public class cSuperGrid : MonoBehaviour
         static cSuperGrid _instance;
         int _curGrid = -1; // not set
 
+        public void SetNewGameValues()
+        {
+                _curGrid = -1;
+                foreach (c3x3 grid in _grids)
+                {
+                        grid.SetNewGameValues();
+
+                }
+        }
         private void Awake()
         {
                 _instance = this;

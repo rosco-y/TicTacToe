@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,15 @@ public class c3x3 : MonoBehaviour
         private void Start()
         {
                 _instance = this;                
+        }
+
+        public  void SetNewGameValues()
+        {
+                _gridValue = 0;
+                foreach (cCell cell in _cells)
+                {
+                        cell.CellValue = 0;
+                }
         }
 
         public cCell[] Cells

@@ -98,6 +98,11 @@ public class cCell : MonoBehaviour
                         // grid is won.
                         if (cSuperGrid.Instance.CheckForWinner())
                         {
+                                if (cGameManager.REDTURN)
+                                        cGameManager.Instance.RedScore++;
+                                else
+                                        cGameManager.Instance.GreenScore++;
+
                                 cSuperGrid.Instance.ColorSuperGridWinner(curMaterial());
                                 cSpotlight.Instance.SetSpotWidth(true);
                         }

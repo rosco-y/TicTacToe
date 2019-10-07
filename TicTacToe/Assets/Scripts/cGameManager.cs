@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class cGameManager : MonoBehaviour
 {
@@ -17,13 +18,35 @@ public class cGameManager : MonoBehaviour
         #endregion
 
         #region PUBLIC
-        
+        public TMP_Text _greenScoreText;
+        public TMP_Text _redScoreText;
         #endregion
 
         #region PRIVATE
         static cGameManager _instance;
-        
+        int _greenScore;
+        int _redScore;
         #endregion
+
+        public int GreenScore
+        {
+                set
+                {
+                        _greenScore = value;
+                        _greenScoreText.text = $"{_greenScore}";
+                }
+                get { return _greenScore; }
+        }
+
+        public int RedScore
+        {
+                set
+                {
+                        _redScore = value;
+                        _redScoreText.text = $"{_redScore}";
+                }
+                get { return _redScore; }
+        }
 
         private void Awake()
         {
@@ -43,7 +66,7 @@ public class cGameManager : MonoBehaviour
                 cSuperGrid.Instance.Rotate = true;
         }
 
-        public cGameManager Instance
+        public static cGameManager Instance
         {
                 get
                 { 
@@ -58,8 +81,10 @@ public class cGameManager : MonoBehaviour
 
         public void NewGame()
         {
+                GameOverFlag = false;
                 cSuperGrid.Instance.Rotate = false;
                 cSuperGrid.Instance.ColorSuperGridWinner(cCell.White);
+                cSuperGrid.Instance.SetNewGameValues();
         }
 
 }
