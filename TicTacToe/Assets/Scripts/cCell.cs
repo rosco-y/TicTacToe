@@ -19,7 +19,8 @@ public class cCell : MonoBehaviour
         float _rotationDir;
         static bool _rotationSaved;
         static Material _white;
-        int _cellValue;
+        int _cellValue = 0;
+
 
         private void Start()
         {

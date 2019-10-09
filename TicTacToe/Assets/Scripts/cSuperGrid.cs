@@ -152,5 +152,15 @@ public class cSuperGrid : MonoBehaviour
                 }
         }
 
+        public void NewGameSettings()
+        {
+                _curGrid = -1; // not set
+                foreach (c3x3 grid in _grids)
+                {
+                        grid.GridValue = 0;
+                        grid.NewGameSettings();
+                }
+        }
+
 
 }

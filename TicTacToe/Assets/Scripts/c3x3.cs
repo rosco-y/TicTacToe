@@ -10,6 +10,7 @@ public class c3x3 : MonoBehaviour
         static c3x3 _instance;
         public const int CATSGAME = 7;  // cat's grid.
         int _gridValue = 0; // indicates winner of this grid
+
         private void Start()
         {
                 _instance = this;                
@@ -155,6 +156,14 @@ public class c3x3 : MonoBehaviour
                         {
                                 cell.Rotate = value;
                         }
+                }
+        }
+
+        public void NewGameSettings()
+        {
+                foreach (cCell cell in _cells)
+                {
+                        cell.CellValue = 0;
                 }
         }
 
