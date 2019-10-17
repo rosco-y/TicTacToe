@@ -945,6 +945,11 @@ PrefabInstance:
       propertyPath: _turnIndicator
       value: 
       objectReference: {fileID: 449214996}
+    - target: {fileID: 3988370472487138483, guid: 6f39332c0eaf45f469e9db289a97b75f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f39332c0eaf45f469e9db289a97b75f, type: 3}
 --- !u!114 &581833872 stripped
@@ -1796,7 +1801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1650044498
 Transform:
   m_ObjectHideFlags: 0
@@ -1884,7 +1889,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spotLight: {fileID: 1650044499}
+  _wideAngle: 100
+  _spotAngle: 15.975
+  _target: {fileID: 0}
+  _prevTarget: {fileID: 0}
   _lightSpeed: 1
+  _wide: 1
+  _spotLightSet: 0
+  _epsilon: 0.01
 --- !u!1 &1724899214
 GameObject:
   m_ObjectHideFlags: 0

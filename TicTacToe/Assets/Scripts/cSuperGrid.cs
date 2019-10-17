@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//*
 public class cSuperGrid : MonoBehaviour
 {
         public c3x3[] _grids;
@@ -51,8 +52,8 @@ public class cSuperGrid : MonoBehaviour
                 set
                 {
                         _curGrid = value;
-                        cSpotlight.Instance.SetSpotWidth(
-                                _curGrid < 0 ? true : false);   
+                        //cSpotlight.Instance.SetSpotWidth(_curGrid < 0 ? true : false);   
+                        
                 }
         }
 
@@ -164,3 +165,4 @@ public class cSuperGrid : MonoBehaviour
 
 
 }
+//*/

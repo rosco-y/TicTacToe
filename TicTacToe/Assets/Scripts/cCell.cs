@@ -105,7 +105,7 @@ public class cCell : MonoBehaviour
                                         cGameManager.Instance.GreenScore++;
 
                                 cSuperGrid.Instance.ColorSuperGridWinner(curMaterial());
-                                cSpotlight.Instance.SetSpotWidth(true);
+                                //cSpotlight.Instance.SetSpotWidth(true);
                         }
                 }
 
@@ -113,7 +113,7 @@ public class cCell : MonoBehaviour
                         cSuperGrid.Instance.CurGrid = _cellNo;
                 else
                         cSuperGrid.Instance.CurGrid = -1;
-                cSpotlight.Instance.Target = target;
+                //cSpotlight.Instance.Target = target;
 
                 // change player turn
                 cGameManager.REDTURN = !cGameManager.REDTURN;

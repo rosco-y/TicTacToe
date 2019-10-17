@@ -55,14 +55,14 @@ public class cGameManager : MonoBehaviour
 
         void Start()
         {
-                cSpotlight.Instance.SetSpotWidth(true);
+                //cSpotlight.Instance.SetSpotWidth(true);
                 //_instance = this;
         }
 
         public static void GameOver()
         {
                 GameOverFlag = true;
-                cSpotlight.Instance.SetSpotWidth(true);
+                //cSpotlight.Instance.SetSpotWidth(true);
                 cSuperGrid.Instance.Rotate = true;
         }
 

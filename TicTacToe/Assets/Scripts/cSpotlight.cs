@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 
+/*
 public class cSpotlight : MonoBehaviour
 {
         // Start is called before the first frame update
@@ -79,3 +80,4 @@ public class cSpotlight : MonoBehaviour
                 }
         }
 }
+//*/

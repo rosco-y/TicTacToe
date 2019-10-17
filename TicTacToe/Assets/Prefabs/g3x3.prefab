@@ -62,6 +62,8 @@ MonoBehaviour:
   - {fileID: 3278052979132329683}
   - {fileID: 8390909535699791027}
   - {fileID: 8867158153318296753}
+  _highlightMaterial: {fileID: 2100000, guid: 661613576c980aa4d9f5a363dda312fd, type: 2}
+  _whiteMaterial: {fileID: 2100000, guid: 1b4449861dfb31c4784d8163e1a22deb, type: 2}
 --- !u!1001 &521311943148703747
 PrefabInstance:
   m_ObjectHideFlags: 0
