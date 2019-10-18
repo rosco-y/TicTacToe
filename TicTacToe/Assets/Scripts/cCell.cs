@@ -95,7 +95,7 @@ public class cCell : MonoBehaviour
         this.GetComponent<Renderer>().material = curMaterial();
         if (cSuperGrid.Instance[_gridNo].CheckForWinner())
         {
-            cSuperGrid.Instance[_gridNo].ColorWonGrid(curMaterial());
+            cSuperGrid.Instance[_gridNo].ColorWonGrid(curMaterial(), cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE);
             // grid is won.
             if (cSuperGrid.Instance.CheckForWinner())
             {
@@ -104,14 +104,14 @@ public class cCell : MonoBehaviour
                 else
                     cGameManager.Instance.GreenScore++;
 
-                cSuperGrid.Instance.ColorSuperGridWinner(curMaterial());
+                cSuperGrid.Instance.ColorSuperGridWinner(curMaterial(), cGameManager.REDTURN ? cGameManager.REDVALUE : cGameManager.GREENVALUE);
                 cSuperGrid.Instance.SetScope(-1);
             }
         }
 
         if (!cGameManager.GameOverFlag && !cSuperGrid.Instance[_cellNo].GridIsWon)
             cSuperGrid.Instance.CurGrid = _cellNo;
-        else
+        else 
             cSuperGrid.Instance.CurGrid = -1;
         //cSpotlight.Instance.Target = target;
         cSuperGrid.Instance.SetScope(_cellNo);

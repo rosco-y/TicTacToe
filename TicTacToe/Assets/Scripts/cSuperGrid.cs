@@ -70,11 +70,11 @@ public class cSuperGrid : MonoBehaviour
             _grids[gridNo].HighlightCells(true);
         }
     }
-    public void ColorSuperGridWinner(Material color)
+    public void ColorSuperGridWinner(Material color, int cellValue)
     {
         foreach (c3x3 grid in _grids)
         {
-            grid.ColorWonGrid(color);
+            grid.ColorWonGrid(color, cellValue);
         }
     }
 

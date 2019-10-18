@@ -155,11 +155,14 @@ public class c3x3 : MonoBehaviour
         return aValues;
     }
 
-    public void ColorWonGrid(Material color)
+    public void ColorWonGrid(Material color, int cellValue)
     {
+        _gridValue = cellValue;
         foreach (cCell cell in _cells)
         {
             cell.GetComponent<Renderer>().material = color;
+            cell.CellValue = cellValue;
+           
         }
     }
 
